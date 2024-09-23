@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background: url('img/bg.gif') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Roboto', sans-serif;
+            color: #e0e0e0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .nav-container {
+            width: 100%;
+            background-color: rgba(58, 58, 58, 0.9);
+            padding: 10px 20px;
+            display: flex;
+            justify-content: flex-end;
+            position: absolute;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+        .nav a {
+            margin: 0 15px;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            background-color: #444;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .nav a:hover {
+            background-color: #555;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+            border-radius: 8px;
+            background-color: rgba(58, 58, 58, 0.9);
+            max-width: 600px;
+            margin-top: 60px;
+        }
+        .button {
+            padding: 12px 25px;
+            font-size: 16px;
+            text-decoration: none;
+            color: white;
+            background-color: #007acc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #005fa3;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-container">
+        <div class="nav">
+            <a href="index.html">Home</a>
+            <a href="index.html">About Me</a>
+        </div>
+    </div>
+    <div class="container">
+        <h1>Welcome to Projects!</h1>
+        <p>Below are projects that I made.</p>
+        <a href="project 1.html" class="button">Project 1</a> <!-- Project 1 button -->
+    </div>
+</body>
+</html>
