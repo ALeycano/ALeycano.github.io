@@ -1,25 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Attack on Titan Characters</title>
+    <title>Fate/Grand Order Characters</title>
 </head>
+
 <body id="body">
     <div class="background" style="background-image: url('bg.png');"></div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Attack on Titan</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Fate/Grand Order</a>
         <div class="ml-auto">
-            <a href="../index.html" class="btn btn-outline-secondary">Home</a>
             <button id="themeToggle" class="btn btn-outline-secondary">Switch Background</button>
         </div>
     </nav>
 
     <div class="banner text-center">
-        <h1>Attack on Titan Characters</h1>
+        <h1>Fate/Grand Order Characters</h1>
         <input type="text" id="searchBar" class="form-control" placeholder="Search for characters...">
     </div>
 
@@ -28,32 +28,42 @@
     </div>
 
     <script>
-        const apiUrl = 'https://api.attackontitanapi.com/characters';
+        const apiUrl = 'https://api.atlasacademy.io/export/NA/basic_servant.json';
         let isDarkMode = false;
 
         async function fetchCharacters() {
             try {
                 const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
-                return data.results;
+                return data || [];
             } catch (error) {
                 console.error('Error fetching characters:', error);
+                alert('Failed to fetch characters. Please try again later.');
                 return [];
             }
         }
 
         function displayCharacters(characters) {
             const characterList = document.getElementById('characterList');
-            characterList.innerHTML = characters.map(character => {
-                const imgUrl = character.img || 'images/default-image.png'; // Adjust path as needed
+            if (!characters || characters.length === 0) {
+                characterList.innerHTML = '<p>No characters found.</p>';
+                return;
+            }
 
+            characterList.innerHTML = characters.map(character => {
+                const imageUrl = character.face || '';
                 return `
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                         <div class="card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
-                            <img src="${imgUrl}" class="card-img-top" alt="${character.name}" onerror="this.onerror=null; this.src='images/default-image.png';">
+                            ${imageUrl ?
+                        `<img src="${imageUrl}" class="card-img-top" alt="${character.name || 'Character Image'}">` :
+                        `<div class="no-image">No Image</div>`}
                             <div class="card-body">
-                                <h5 class="card-title">${character.name}</h5>
-                                <a href="view.html?id=${character.id}" class="btn btn-primary">View Details</a>
+                                <h5 class="card-title">${character.name || 'Unnamed Character'}</h5>
+                                <a href="view.html?id=${character.id}" class="btn btn-primary">Details</a>
                             </div>
                         </div>
                     </div>
@@ -68,8 +78,8 @@
             const searchBar = document.getElementById('searchBar');
             searchBar.addEventListener('input', () => {
                 const searchTerm = searchBar.value.toLowerCase();
-                const filteredCharacters = characters.filter(character => 
-                    character.name.toLowerCase().includes(searchTerm)
+                const filteredCharacters = characters.filter(character =>
+                    character.name && character.name.toLowerCase().includes(searchTerm)
                 );
                 displayCharacters(filteredCharacters);
             });
@@ -78,13 +88,20 @@
             themeToggle.addEventListener('click', () => {
                 isDarkMode = !isDarkMode;
                 const backgroundElement = document.querySelector('.background');
+                const navbar = document.getElementById('navbar');
 
                 if (isDarkMode) {
                     backgroundElement.style.backgroundImage = "url('bg2.jfif')";
                     document.body.style.color = '#fff';
+                    navbar.classList.remove('bg-light');
+                    navbar.classList.add('bg-dark');
+                    navbar.classList.add('navbar-dark');
                 } else {
                     backgroundElement.style.backgroundImage = "url('bg.png')";
                     document.body.style.color = '#333';
+                    navbar.classList.remove('bg-dark');
+                    navbar.classList.remove('navbar-dark');
+                    navbar.classList.add('bg-light');
                 }
                 displayCharacters(characters);
             });
@@ -95,4 +112,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

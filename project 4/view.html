@@ -1,99 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>Attack on Titan Character Details</title>
+    <title>Character Details</title>
 </head>
+
 <body id="body">
     <div class="background" style="background-image: url('bg.png');"></div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="index.html">Attack on Titan</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Fate/Grand Order</a>
         <button id="themeToggle" class="btn btn-outline-secondary ml-auto">Switch Background</button>
     </nav>
 
     <div class="container mt-4">
-        <div id="characterDetails" class="text-center"></div>
-        <div class="col-12 mb-3">
-            <div class="banner text-center mt-4">
-                <h3>Episodes featuring this character</h3>
-            </div>
+        <div class="banner text-center mb-4">
+            <h3>Character Details</h3>
         </div>
+        <div id="characterDetails" class="text-center"></div>
+
         <div id="episodeList" class="row"></div>
     </div>
 
     <script>
-        const apiUrl = 'https://api.attackontitanapi.com/characters';
+        const apiUrl = 'https://api.atlasacademy.io/export/NA/basic_servant.json';
         let isDarkMode = false;
 
         async function fetchCharacterById(id) {
-            const response = await fetch(`${apiUrl}/${id}`);
-            return await response.json();
-        }
-
-        async function fetchEpisodeDetails(episodeUrls) {
-            const episodeDetails = await Promise.all(
-                episodeUrls.map(async (url) => {
-                    const response = await fetch(url);
-                    return await response.json();
-                })
-            );
-            return episodeDetails.filter(ep => ep);
+            const response = await fetch(apiUrl);
+            const characters = await response.json();
+            return characters.find(character => character.id === id);
         }
 
         function displayCharacter(character) {
             const characterDetails = document.getElementById('characterDetails');
-
             if (character) {
                 characterDetails.innerHTML = `
                     <div class="card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
-                        <img src="${character.img}" class="img-fluid" alt="${character.name}" onerror="this.onerror=null; this.src='images/default-image.png';">
+                        <img src="${character.face}" class="img-fluid" alt="${character.name}">
                         <div class="card-body">
                             <h5 class="card-title">${character.name}</h5>
-                            <p><strong>Alias:</strong> ${character.alias.join(', ') || 'N/A'}</p>
-                            <p><strong>Species:</strong> ${character.species.join(', ') || 'N/A'}</p>
-                            <p><strong>Gender:</strong> ${character.gender || 'N/A'}</p>
-                            <p><strong>Status:</strong> ${character.status || 'N/A'}</p>
-                            <p><strong>Occupation:</strong> ${character.occupation || 'N/A'}</p>
+                            <p><strong>Class:</strong> ${character.className || 'N/A'}</p>
+                            <p><strong>Attribute:</strong> ${character.attribute || 'N/A'}</p>
+                            <p><strong>Rarity:</strong> ${character.rarity || 'N/A'}⭐</p>
                         </div>
-                    </div>`;
-                displayEpisodes(character.episodes);
+                    </div>
+                `;
             } else {
                 characterDetails.innerHTML = '<p>Character not found.</p>';
             }
         }
 
-        async function displayEpisodes(episodeUrls) {
-            const episodeList = document.getElementById('episodeList');
-            const episodes = await fetchEpisodeDetails(episodeUrls);
-
-            if (episodes.length > 0) {
-                episodeList.innerHTML = episodes.map(ep => `
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
-                        <div class="card episode-card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
-                            <div class="image-container">
-                                <img src="${ep.img}" class="card-img-top" alt="${ep.name}" onerror="this.onerror=null; this.src='images/default-image.png';">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">${ep.name || 'Unknown Title'}</h5>
-                                <p class="card-text"><strong>Episode:</strong> ${ep.episode || 'N/A'}</p>
-                                <p class="card-text">${ep.description || 'No description available.'}</p>
-                                <div class="spoiler-warning">Spoiler Warning</div>
-                            </div>
-                        </div>
-                    </div>
-                `).join('');
-            } else {
-                episodeList.innerHTML = '<p>No episode details found.</p>';
-            }
-        }
-
         function getCharacterIdFromUrl() {
             const params = new URLSearchParams(window.location.search);
-            return params.get('id');
+            return parseInt(params.get('id'));
         }
 
         document.addEventListener('DOMContentLoaded', async () => {
@@ -105,15 +68,22 @@
             themeToggle.addEventListener('click', () => {
                 isDarkMode = !isDarkMode;
                 const backgroundElement = document.querySelector('.background');
+                const navbar = document.getElementById('navbar');
 
                 if (isDarkMode) {
                     backgroundElement.style.backgroundImage = "url('bg2.jfif')";
                     document.body.style.color = '#fff';
+                    navbar.classList.remove('bg-light');
+                    navbar.classList.add('bg-dark');
+                    navbar.classList.add('navbar-dark');
                 } else {
                     backgroundElement.style.backgroundImage = "url('bg.png')";
                     document.body.style.color = '#333';
+                    navbar.classList.remove('bg-dark');
+                    navbar.classList.remove('navbar-dark');
+                    navbar.classList.add('bg-light');
                 }
-                displayCharacter(character); // Update character display with new theme
+                displayCharacter(character);
             });
         });
     </script>
@@ -122,4 +92,5 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
