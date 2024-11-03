@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Default light background color */
+    color: #333; /* Default text color */
+}
+
+.background {
+    position: fixed; /* Fixed positioning */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep it behind all other content */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    transition: background-image 0.3s; /* Smooth transition for background change */
+}
+
+.banner {
+    position: relative;
+    z-index: 1;
+    background-color: rgba(255, 165, 0, 0.7);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.card {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+}
+
+.no-image {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #888;
+    font-size: 16px;
+    text-align: center;
+}
+
+.episode-card {
+    position: relative;
+}
+
+.image-container {
+    overflow: hidden;
+    height: 200px;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.spoiler-warning {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 0, 0, 0.5);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.episode-card:hover .spoiler-warning {
+    opacity: 0;
+}
+
+@media (max-width: 576px) {
+    .banner {
+        font-size: 1.2em;
+    }
+}

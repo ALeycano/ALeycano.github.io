@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Attack on Titan Characters</title>
+</head>
+<body id="body">
+    <div class="background" style="background-image: url('bg.png');"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Attack on Titan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+        <div class="ml-auto">
+            <a href="../index.html" class="btn btn-outline-secondary">Home</a>
+            <button id="themeToggle" class="btn btn-outline-secondary">Switch Background</button>
+        </div>
+    </nav>
+
+    <div class="banner text-center">
+        <h1>Attack on Titan Characters</h1>
+        <input type="text" id="searchBar" class="form-control" placeholder="Search for characters...">
+    </div>
+
+    <div class="container mt-4">
+        <div id="characterList" class="row"></div>
+    </div>
+
+    <script>
+        const apiUrl = 'https://api.attackontitanapi.com/characters';
+        let isDarkMode = false;
+
+        async function fetchCharacters() {
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+            return data.results;
+        }
+
+        function displayCharacters(characters) {
+            const characterList = document.getElementById('characterList');
+            characterList.innerHTML = characters.map(character => `
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
+                        ${character.img ? 
+                            `<img src="${character.img}" class="card-img-top" alt="${character.name}">` : 
+                            `<div class="no-image">No Image</div>`}
+                        <div class="card-body">
+                            <h5 class="card-title">${character.name}</h5>
+                            <a href="view.html?id=${character.id}" class="btn btn-primary">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const characters = await fetchCharacters();
+            displayCharacters(characters);
+
+            // Search functionality
+            const searchBar = document.getElementById('searchBar');
+            searchBar.addEventListener('input', () => {
+                const searchTerm = searchBar.value.toLowerCase();
+                const filteredCharacters = characters.filter(character => 
+                    character.name.toLowerCase().includes(searchTerm)
+                );
+                displayCharacters(filteredCharacters);
+            });
+
+            // Background and theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', () => {
+                isDarkMode = !isDarkMode;
+                const backgroundElement = document.querySelector('.background');
+
+                if (isDarkMode) {
+                    backgroundElement.style.backgroundImage = "url('bg2.jfif')";
+                    document.body.style.color = '#fff';
+                } else {
+                    backgroundElement.style.backgroundImage = "url('bg.png')";
+                    document.body.style.color = '#333';
+                }
+                displayCharacters(characters); // Re-render characters to apply card styles
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
