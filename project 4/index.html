@@ -35,23 +35,22 @@
             try {
                 const response = await fetch(apiUrl);
                 const data = await response.json();
-                console.log(data); // Log the entire API response
                 return data.results;
             } catch (error) {
                 console.error('Error fetching characters:', error);
+                return [];
             }
         }
 
         function displayCharacters(characters) {
             const characterList = document.getElementById('characterList');
             characterList.innerHTML = characters.map(character => {
-                console.log('Character:', character); // Log character details
-                const imgUrl = character.img || 'path/to/default-image.png'; // Fallback for missing images
+                const imgUrl = character.img || 'images/default-image.png'; // Adjust path as needed
 
                 return `
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                         <div class="card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
-                            <img src="${imgUrl}" class="card-img-top" alt="${character.name}">
+                            <img src="${imgUrl}" class="card-img-top" alt="${character.name}" onerror="this.onerror=null; this.src='images/default-image.png';">
                             <div class="card-body">
                                 <h5 class="card-title">${character.name}</h5>
                                 <a href="view.html?id=${character.id}" class="btn btn-primary">View Details</a>
@@ -64,21 +63,17 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             const characters = await fetchCharacters();
-            if (characters) {
-                displayCharacters(characters);
+            displayCharacters(characters);
 
-                // Search functionality
-                const searchBar = document.getElementById('searchBar');
-                searchBar.addEventListener('input', () => {
-                    const searchTerm = searchBar.value.toLowerCase();
-                    const filteredCharacters = characters.filter(character => 
-                        character.name.toLowerCase().includes(searchTerm)
-                    );
-                    displayCharacters(filteredCharacters);
-                });
-            }
+            const searchBar = document.getElementById('searchBar');
+            searchBar.addEventListener('input', () => {
+                const searchTerm = searchBar.value.toLowerCase();
+                const filteredCharacters = characters.filter(character => 
+                    character.name.toLowerCase().includes(searchTerm)
+                );
+                displayCharacters(filteredCharacters);
+            });
 
-            // Background and theme toggle functionality
             const themeToggle = document.getElementById('themeToggle');
             themeToggle.addEventListener('click', () => {
                 isDarkMode = !isDarkMode;
@@ -91,7 +86,7 @@
                     backgroundElement.style.backgroundImage = "url('bg.png')";
                     document.body.style.color = '#333';
                 }
-                displayCharacters(characters); // Re-render characters to apply card styles
+                displayCharacters(characters);
             });
         });
     </script>
