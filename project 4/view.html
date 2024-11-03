@@ -11,17 +11,15 @@
     <div class="background" style="background-image: url('bg.png');"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="index.html">Attack on Titan</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">       
-        </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"></button>
         <button id="themeToggle" class="btn btn-outline-secondary ml-auto">Switch Background</button>
     </nav>
 
     <div class="container mt-4">
         <div id="characterDetails" class="text-center"></div>
-            <div class="col-12 mb-3">
-                <div class="banner text-center mt-4">
-                    <h3>Episodes featuring this character</h3>
-                </div>
+        <div class="col-12 mb-3">
+            <div class="banner text-center mt-4">
+                <h3>Episodes featuring this character</h3>
             </div>
         </div>
         <div id="episodeList" class="row"></div>
@@ -33,8 +31,7 @@
 
         async function fetchCharacterById(id) {
             const response = await fetch(`${apiUrl}/${id}`);
-            const character = await response.json();
-            return character;
+            return await response.json();
         }
 
         async function fetchEpisodeDetails(episodeUrls) {
@@ -53,7 +50,7 @@
             if (character) {
                 characterDetails.innerHTML = `
                     <div class="card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
-                        <img src="${character.img}" class="img-fluid" alt="${character.name}">
+                        <img src="${character.img}" class="img-fluid" alt="${character.name}" onerror="this.onerror=null; this.src='images/default-image.png';">
                         <div class="card-body">
                             <h5 class="card-title">${character.name}</h5>
                             <p><strong>Alias:</strong> ${character.alias.join(', ') || 'N/A'}</p>
@@ -62,8 +59,7 @@
                             <p><strong>Status:</strong> ${character.status || 'N/A'}</p>
                             <p><strong>Occupation:</strong> ${character.occupation || 'N/A'}</p>
                         </div>
-                    </div>
-                `;
+                    </div>`;
                 displayEpisodes(character.episodes);
             } else {
                 characterDetails.innerHTML = '<p>Character not found.</p>';
@@ -76,10 +72,10 @@
 
             if (episodes.length > 0) {
                 episodeList.innerHTML = episodes.map(ep => `
-                     <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mb-3">
                         <div class="card episode-card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
                             <div class="image-container">
-                                <img src="${ep.img}" class="card-img-top" alt="${ep.name}">
+                                <img src="${ep.img}" class="card-img-top" alt="${ep.name}" onerror="this.onerror=null; this.src='images/default-image.png';">
                             </div>
                             <div class="card-body text-center">
                                 <h5 class="card-title">${ep.name || 'Unknown Title'}</h5>
@@ -105,7 +101,6 @@
             const character = await fetchCharacterById(characterId);
             displayCharacter(character);
 
-            // Background and theme toggle functionality
             const themeToggle = document.getElementById('themeToggle');
             themeToggle.addEventListener('click', () => {
                 isDarkMode = !isDarkMode;
@@ -118,7 +113,7 @@
                     backgroundElement.style.backgroundImage = "url('bg.png')";
                     document.body.style.color = '#333';
                 }
-                displayCharacter(character); // Re-render character to apply card styles
+                displayCharacter(character); // Update character display with new theme
             });
         });
     </script>
