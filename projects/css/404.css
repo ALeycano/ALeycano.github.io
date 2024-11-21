@@ -1,0 +1,56 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+}
+
+.page_404
+{
+    padding: 40px 0;
+    background: #ffffff;
+    font-family: 'Poppins';
+}
+
+.page_404 img
+{
+    width: 100%;
+}
+
+.four_zero_four_bg
+{
+    background: url('../img/img.gif');
+    height: 580px;
+    background-position: center;
+    
+}
+
+h1
+{
+    font-size: 80px;
+}
+
+h3
+{
+    font-size: 80px;
+}
+
+a
+{
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    background: #39ac31;
+    display: inline-block;
+}
+
+.content-box-404
+{
+    margin-top: -50px;
+}
+a:hover
+{
+    text-decoration: none;
+    color: #fff;
+}

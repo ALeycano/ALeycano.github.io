@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Character Details</title>
+    <link rel="icon" href="../img/icn.png">
+</head>
+
+<body id="body">
+    <div class="background" style="background-image: url('bg.png');"></div>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Fate/Grand Order</a>
+        <button id="themeToggle" class="btn btn-outline-secondary ml-auto">Switch Background</button>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="banner text-center mb-4">
+            <h3>Character Details</h3>
+        </div>
+        <div id="characterDetails" class="text-center"></div>
+
+        <div id="episodeList" class="row"></div>
+    </div>
+
+    <script>
+        const apiUrl = 'https://api.atlasacademy.io/export/NA/basic_servant.json';
+        let isDarkMode = false;
+
+        async function fetchCharacterById(id) {
+            const response = await fetch(apiUrl);
+            const characters = await response.json();
+            return characters.find(character => character.id === id);
+        }
+
+        function displayCharacter(character) {
+            const characterDetails = document.getElementById('characterDetails');
+            if (character) {
+                characterDetails.innerHTML = `
+                    <div class="card ${isDarkMode ? 'bg-dark text-white' : 'bg-light text-dark'}">
+                        <img src="${character.face}" class="img-fluid" alt="${character.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${character.name}</h5>
+                            <p><strong>Class:</strong> ${character.className || 'N/A'}</p>
+                            <p><strong>Attribute:</strong> ${character.attribute || 'N/A'}</p>
+                            <p><strong>Rarity:</strong> ${character.rarity || 'N/A'}⭐</p>
+                        </div>
+                    </div>
+                `;
+            } else {
+                characterDetails.innerHTML = '<p>Character not found.</p>';
+            }
+        }
+
+        function getCharacterIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return parseInt(params.get('id'));
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const characterId = getCharacterIdFromUrl();
+            const character = await fetchCharacterById(characterId);
+            displayCharacter(character);
+
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', () => {
+                isDarkMode = !isDarkMode;
+                const backgroundElement = document.querySelector('.background');
+                const navbar = document.getElementById('navbar');
+
+                if (isDarkMode) {
+                    backgroundElement.style.backgroundImage = "url('bg2.jfif')";
+                    document.body.style.color = '#fff';
+                    navbar.classList.remove('bg-light');
+                    navbar.classList.add('bg-dark');
+                    navbar.classList.add('navbar-dark');
+                } else {
+                    backgroundElement.style.backgroundImage = "url('bg.png')";
+                    document.body.style.color = '#333';
+                    navbar.classList.remove('bg-dark');
+                    navbar.classList.remove('navbar-dark');
+                    navbar.classList.add('bg-light');
+                }
+                displayCharacter(character);
+            });
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
