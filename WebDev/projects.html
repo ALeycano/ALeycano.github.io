@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="projects/img/icn.png">
+    <link rel="stylesheet" href="projects/css/projects.css">
+</head>
+
+<body class="bg">
+    <div class="nav-container">
+        <nav class="navbar navbar-expand-lg sticky-top">
+        </nav>
+    </div>
+
+    <div class="container text-center py-5">
+        <img src="projects/img/welcome.gif" alt="Welcome GIF" class="img-fluid mb-4 welcome-image">
+        <h1>Welcome to Projects!</h1>
+        <p>Below are projects that I made.</p>
+        <div class="d-grid gap-3 d-sm-flex justify-content-center mb-4">
+            <a href="index.html" class="btn btn-info px-4">HOME</a>
+        </div>
+    
+        <div class="row justify-content-center">
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <a href="projects/project 1/project 1.html" class="btn btn-primary w-100" id="project1">Project 1</a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <a href="projects/project 2/project 2.html" class="btn btn-primary w-100" id="project2">Project 2</a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <a href="projects/project 3/project 3.html" class="btn btn-primary w-100" id="project3">Project 3</a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <a href="projects/project 4/index.html" class="btn btn-primary w-100" id="project4">Project 4</a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <a href="projects/project 5/index.html" class="btn btn-primary w-100" id="project5">Project 5</a>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 mb-3">
+                <a href="projects/project 6/index.html" class="btn btn-primary w-100" id="project6">Project 6</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white py-3 text-center mt-auto">
+        <p>&copy; 2024 ALeycano. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('project1').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'red'; 
+        });
+        document.getElementById('project1').addEventListener('mouseout', function() {
+            this.style.backgroundColor = ''; 
+        });
+
+        document.getElementById('project2').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'yellow';
+        });
+        document.getElementById('project2').addEventListener('mouseout', function() {
+            this.style.backgroundColor = ''; 
+        });
+
+        document.getElementById('project3').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'green';
+        });
+        document.getElementById('project3').addEventListener('mouseout', function() {
+            this.style.backgroundColor = ''; 
+        });
+
+        document.getElementById('project4').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'blue'; 
+        });
+        document.getElementById('project4').addEventListener('mouseout', function() {
+            this.style.backgroundColor = ''; 
+        });
+
+        document.getElementById('project5').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'purple'; 
+        });
+        document.getElementById('project5').addEventListener('mouseout', function() {
+            this.style.backgroundColor = ''; 
+        });
+
+        document.getElementById('project6').addEventListener('mouseover', function() {
+            this.style.backgroundColor = 'orange'; 
+        });
+        document.getElementById('project6').addEventListener('mouseout', function() {
+            this.style.backgroundColor = ''; 
+        });
+    </script>
+
+</body>
+
+</html>
