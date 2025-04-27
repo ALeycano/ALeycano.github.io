@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Water Management</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="../css/pages.css" rel="stylesheet">
+  <link rel="icon" href="../../img/icn.png">
+</head>
+
+<body data-bs-theme="dark">
+
+  <div class="container-fluid">
+    <div class="display-3 text-center banner-text">
+      Explore Water Conservation
+    </div>
+  </div>
+
+  <!-- LEFT COL -->
+  <div class="container">
+    <div class="row mt-5">
+      <div class="col-12">
+        <div class="card p-5 box-sm d-flex align-items-center justify-content-center text-center" style="color: black;">
+          <h1 class="display-6">💧 Save Every Drop</h1>
+          <p class="content mt-2">Only 0.5% of Earth’s water is usable. Let’s make it count.</p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <img src="../img/down.png" alt="down-img" class="card-hover1 card-img mt-3 mb-3 box-sm contained-img">
+        <img src="../img/half.png" alt="water-img" class="card box-md card-img" style="border: none;">
+      </div>
+
+      <!-- MID COL -->
+      <div class="col-12 col-md-4">
+        <div class="card card-hover p-5 mt-3 box-lg" style="height: 670px;">
+          <div>
+            <a href="https://legacy.senate.gov.ph/publications/SEPO/State%20of%20Water%20AAG_August%202023.pdf">
+              <canvas id="myChart"></canvas>
+            </a>
+          </div>
+
+          <h3 class="text-center mt-3">Polluted vs Clean Rivers in the Philippines</h3>
+        </div>
+      </div>
+
+      <!-- RIGHT COL -->
+      <div class="col-12 col-md-4">
+        <a href="https://www.hpmmag.com/top-tips/water-save-week-five-steps-to-take-in-the-home">
+          <img src="../img/save.png" alt="water-img" class="card-hover mt-3 box-md card-img"
+            style="border: none; border-radius: 10px; height: 300px;">
+        </a>
+        <div class="card p-5 mt-3 box-sm" style="height: 350px;">
+          <h3 class="text-center">
+            <a href="electricity.html" class="d-flex align-items-center" style="color: #1b1f22;">
+              <i class="bi bi-arrow-right-circle me-2"></i>Go to Energy Management
+            </a>
+          </h3>
+          <a href="../home.html" class="btn" style="background-color: #1b1f22; color: #edeade; text-decoration: none;">
+            <i class="bi bi-house-door"></i> Home
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- CHART -->
+  <script>
+    const ctx = document.getElementById('myChart');
+
+    const data = {
+      labels: [
+        'Polluted Rivers in the Philippines',
+        'Clean Rivers in the Philippines',
+      ],
+      datasets: [{
+        label: 'Numbers of Clean and Polluted Rivers',
+        data: [180, 241],
+        backgroundColor: [
+          'rgb(20, 19, 18)',
+          'rgb(119, 117, 111)',
+        ],
+        hoverOffset: 4
+      }]
+    };
+
+    new Chart(ctx, {
+      type: 'pie',
+      data: data,
+    });
+  </script>
+
+</body>
+
+</html>

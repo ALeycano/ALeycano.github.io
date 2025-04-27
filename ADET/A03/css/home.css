@@ -1,0 +1,96 @@
+body, h3, h5 {
+    font-family: 'Poppins', sans-serif;
+    color: rgb(9, 0, 0);
+}
+
+.quote-card {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quote-card h3 {
+    margin-bottom: 0;
+}
+
+.quote-card h5 {
+    text-align: right;
+    font-weight: 400;
+    opacity: 0.8;
+    animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.quote-card h3, .quote-card h5 {
+    opacity: 0; 
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+.col-md-4 {
+    opacity: 0; 
+    animation: fadeIn 2s ease-in-out forwards; 
+    animation-delay: 1s; 
+}
+
+.card {
+    border-radius: 12px;
+    padding: 16px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.box-1 {
+    background-color: #edeade;
+    height: 400px;
+}
+
+.box-2,
+.box-3,
+.box-4 {
+    background-color: #edeade;
+    height: 200px;
+}
+
+.card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+nav.navbar {
+    background-color: #1b1f22;
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card a {
+    text-decoration: none;
+    color: white;
+}
+
+.contained-img {
+    object-fit: contain;
+    padding: 10px;
+    display: block;
+}

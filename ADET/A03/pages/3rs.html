@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>3Rs</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="icon" href="../../img/icn.png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #1b1f22;
+        }
+
+        .container-fluid {
+            background-color: #1b1f22;
+            padding: 20px 0;
+        }
+
+        .card {
+            background-color: #edeade;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+            border-radius: 10px;
+            padding: 20px;
+            height: 100%;
+            word-wrap: break-word;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .banner-text {
+            font-weight: 600;
+            font-size: 46px;
+            color: #edeade;
+            padding: 30px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+        }
+
+        .box-md {
+            height: 500px;
+            margin-top: 30px;
+        }
+
+        .text-heading {
+            font-weight: 600;
+            color: #1b1f22;
+            font-size: 24px;
+        }
+
+        .text-content {
+            color: #343a40;
+            font-size: 16px;
+            line-height: 22px;
+        }
+
+        .card-hover:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-btn {
+            background-color: #edeade;
+            color: #1b1f22;
+            padding: 10px 30px;
+            border-radius: 50px;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-btn:hover {
+            background-color: #1b1f22;
+            color: #edeade;
+            text-decoration: none;
+        }
+
+        @media (max-width: 767.98px) {
+            .banner-text {
+                font-size: 32px;
+                padding: 16px;
+            }
+
+            .container {
+                padding: 16px;
+            }
+
+            .col-12.col-md-4 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .display-6 {
+                font-size: 24px;
+            }
+
+            .content {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 575.98px) {
+            .container-fluid {
+                padding: 16px;
+            }
+
+            .banner-text {
+                font-size: 28px;
+                padding: 12px;
+            }
+
+            .card {
+                margin-bottom: 15px;
+            }
+
+            .col-md-3,
+            .col-md-4 {
+                margin-bottom: 20px;
+            }
+
+            .col-md-3,
+            .col-md-6 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .banner-text {
+                font-size: 46px;
+                padding: 30px;
+            }
+
+            .card p {
+                font-size: 18px;
+            }
+
+            .display-6 {
+                font-size: 32px;
+            }
+
+            .text-heading {
+                font-size: 32px;
+            }
+
+            .content {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body data-bs-theme="dark">
+
+    <div class="container-fluid">
+        <div class="display-3 text-center banner-text" style="margin-bottom: 30px;">
+            REuse/REduce/REcycle
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="card p-5 box-sm d-flex align-items-center justify-content-center text-center"
+                    style="color: black; margin-bottom: 30px;">
+                    <h1 class="display-6">♻️ Embrace the 3Rs</h1>
+                    <p class="content mt-2"> Simple actions, big impact — protect the planet one step at a time.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="card card-hover text-center box-md" style="background-color: #edeade;">
+                    <h2 class="text-heading">Reduce</h2>
+                    <p class="text-content">Minimize waste by consuming less, using fewer resources, and purchasing
+                        products that are designed to last longer. Every small reduction can make a huge difference!</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-hover text-center box-md" style="background-color: #edeade;">
+                    <h2 class="text-heading">Reuse</h2>
+                    <p class="text-content">Repurpose items and materials to avoid their disposal. Reusing products,
+                        containers, and even furniture helps conserve resources and reduces the need for new
+                        manufacturing.</p>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card-hover text-center box-md" style="background-color: #edeade;">
+                    <h2 class="text-heading">Recycle</h2>
+                    <p class="text-content">Transform waste materials into new products to prevent further waste. By
+                        recycling, we can keep valuable materials in use and reduce the burden on landfills and natural
+                        resources.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center my-5">
+            <a href="https://solarschools.net/knowledge-bank/sustainability/reduce-reuse-recycle"
+                class="cta-btn animate__animated animate__fadeIn mx-3">Learn More</a>
+            <a href="../home.html" class="cta-btn animate__animated animate__fadeIn">Home</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
