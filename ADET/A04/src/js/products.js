@@ -131,14 +131,14 @@ var products = [
                 price: "40",
                 description: "Chocolate-flavored ice cream in a convenient cup.",
                 code: "CC",
-                image: "img/ST/CC.avif"
+                image: "img/ST/CC.png"
             },
             {
                 name: "Ube Cup",
                 price: "40",
                 description: "Ube-flavored ice cream in a cup.",
                 code: "UC",
-                image: "img/ST/UC.avif"
+                image: "img/ST/UC.png"
             },
             {
                 name: "Chocky",
