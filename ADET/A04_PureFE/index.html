@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>POS System | SELECTA</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/styles.css">
+    <link rel="icon" href="../img/icn.png">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark shadow-sm px-3">
+        <div class="d-flex align-items-center gap-2">
+            <a href="../../index.html">
+                <img src="../img/icn.png" alt="Icon 1" style="width: 32px; height: 32px;">
+            </a>
+            <a href="https://www.selectaphilippines.com/home.html">
+                <img src="img/selecta.png" alt="Icon 2" style="width: 32px; height: 32px;">
+            </a>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row pt-3">
+            <div class="col-12 col-md-9">
+                <!-- TOP CONTAINER -->
+                <div class="row">
+                    <div class="col pb-3">
+                        <div class="card rounded-3 shadow p-3 topcontainer">
+                            <div class="d-flex flex-start flex-row categories" id="categories">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- MAIN -->
+                <div class="row">
+                    <div class="col">
+                        <div class="card overflow-scroll shadow p-3 mb-3 maincontainer">
+                            <div class="d-flex flex-start flex-row flex-wrap" id="maincontainer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- RECEIPT -->
+            <div class="col-12 col-md-3">
+                <div class="receiptContainer overflow-scroll rounded shadow p-3 d-flex flex-column justify-content-between" style="height: 100%;">
+                    <div>
+                        <div id="receipt"></div>
+                        <div class="container-total mt-3 d-flex justify-content-between">
+                            <div><b>TOTAL</b></div>
+                            <div class="totalValue"><b id="totalValue">₱0</b></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button onclick="printReceipt()" class="btn btn-success mt-3 w-100">Print</button>
+                        </div>
+                        <div class="col">
+                            <button onclick="clearReceipt()" class="btn btn-danger mt-3 w-100">Clear All</button>   
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/products.js"></script>
+    <script src="src/js/functions.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+</body>
+
+</html>
