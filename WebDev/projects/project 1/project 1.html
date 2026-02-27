@@ -4,126 +4,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showcase</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Project 1|Showcase</title>
+
+    <meta name="description"
+        content="LTE Cat4 Home Station - Reliable high-speed 4G LTE connectivity for home and office use.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="../img/icn.png">
 </head>
 
-<body class="solid-bg">
+<body>
 
-    <div class="nav-container">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="../../../index.html">Home</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="https://www.alcatelmobile.com/tcl-communication/">About
-                                Alcatel</a>
-                        </li>
-                    </ul>
-                </div>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="../../../index.html">
+                <img src="../../projects/img/icn.png" alt="Logo">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.alcatelmobile.com/about-us/" target="_blank">
+                            <i class="bi bi-phone me-2"></i> About Manufacturer
+                        </a>
+                    </li>
+                    </li>
+                </ul>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
 
-    <header class="hero-banner text-center text-white py-5"
-        style="background: linear-gradient(135deg, #100f0f, #3e3737), url('../project 1/banner.jpg') center/cover no-repeat;">
-        <h1 class="display-4">LTE Cat4 Home Station</h1>
-        <p class="lead">Experience lightning-fast 4G LTE speeds at home</p>
-        <a href="#features" class="btn btn-primary btn-lg">Explore</a>
+    <header class="hero-section d-flex">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold animate__animated animate__fadeIn">
+                LTE Cat4 Home Station
+            </h1>
+
+            <p class="lead mt-3 opacity-75 animate__animated animate__fadeIn animate__delay-1s">
+                Stable and secure 4G LTE connectivity for your home network.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 mt-4">
+                <a href="#features" class="btn btn-primary animate__animated animate__fadeIn animate__delay-1s">
+                    View Features
+                </a>
+                <a href="../../projects.html" class="btn btn-glass animate__animated animate__fadeIn animate__delay-1s">
+                    Back to Projects
+                </a>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section id="features" class="container my-5">
-            <h2 class="text-primary text-center">Features</h2>
-            <p class="text-center">Connect to 4G LTE networks and enjoy fast internet speeds at home.</p>
-            <div class="row">
-                <div class="col-md-4 text-center mb-4">
-                    <img src="../project 1/speed.png" alt="Speed Icon" class="mb-2" style="width: 50px;">
-                    <p>Up to 150 Mbps download speeds</p>
+    <!-- FEATURES -->
+    <section id="features" class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-semibold animate__animated animate__fadeIn">
+                    Key Features
+                </h2>
+                <p class="opacity-75 animate__animated animate__fadeIn animate__delay-1s">
+                    Designed for reliability, speed, and ease of use.
+                </p>
+            </div>
+
+            <div class="row text-center g-4">
+                <!-- Card 1 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp">
+                    <div class="feature-box h-100 d-flex flex-column align-items-center p-3">
+                        <i class="bi bi-speedometer2 fs-1 mb-3"></i>
+                        <h6 class="fw-semibold">High-Speed Connectivity</h6>
+                        <p class="small opacity-75">
+                            Download speeds up to 150 Mbps.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center mb-4">
-                    <img src="../project 1/device.png" alt="Devices Icon" class="mb-2" style="width: 50px;">
-                    <p>Supports multiple devices</p>
+
+                <!-- Card 2 -->
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="feature-box h-100 d-flex flex-column align-items-center p-3">
+                        <i class="bi bi-people-fill fs-1 mb-3"></i>
+                        <h6 class="fw-semibold">Multi-Device Support</h6>
+                        <p class="small opacity-75">
+                            Connect up to 32 devices simultaneously.
+                        </p>
+                    </div>
                 </div>
-                <div class="col-md-4 text-center mb-4">
-                    <img src="../project 1/setup.png" alt="Setup Icon" class="mb-2" style="width: 50px;">
-                    <p>Easy to set up and use</p>
+
+                <!-- Card 3 -->
+
+                <div class="col-md-4 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="feature-box h-100 d-flex flex-column align-items-center p-3">
+                        <i class="bi bi-tools fs-1 mb-3"></i>
+                        <h6 class="fw-semibold">Simple Setup</h6>
+                        <p class="small opacity-75">
+                            Quick and intuitive installation process.
+                        </p>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="specifications" class="container my-5">
-            <h2 class="text-primary text-center">Specifications</h2>
-            <div class="table-responsive">
-                <table class="table table-bordered">
-                    <tr>
-                        <th>Network</th>
-                        <td>LTE/DC-HSPA+/HSPA+/HSUPA/HSDPA/UMTS/EDGE/GPRS</td>
-                    </tr>
-                    <tr>
-                        <th>Frequency</th>
-                        <td>FDD LTE Band 1, 3, 7, 8, 20<br>WCDMA Band 1, 3, 8<br>GSM Band 850/900/1800/1900MHz</td>
-                    </tr>
-                    <tr>
-                        <th>Max Data Rate</th>
-                        <td>FDD-LTE DL 150Mbps/UL 50Mbps</td>
-                    </tr>
-                    <tr>
-                        <th>WiFi</th>
-                        <td>802.11 b/g/n, 2.4GHz, 2X2, support up to 32 WiFi users</td>
-                    </tr>
-                    <tr>
-                        <th>Chipset</th>
-                        <td>Qualcomm MDM9207</td>
-                    </tr>
+    <!-- SPECIFICATIONS -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center fw-semibold mb-5 animate__animated animate__fadeIn">
+                Technical Specifications
+            </h2>
+
+            <div class="table-responsive animate__animated animate__fadeInUp">
+                <table class="table table-bordered align-middle">
+                    <tbody>
+                        <tr>
+                            <th>Network</th>
+                            <td>LTE/DC-HSPA+/HSPA+/UMTS/EDGE/GPRS</td>
+                        </tr>
+                        <tr>
+                            <th>Max Data Rate</th>
+                            <td>150 Mbps Download / 50 Mbps Upload</td>
+                        </tr>
+                        <tr>
+                            <th>WiFi</th>
+                            <td>802.11 b/g/n (2.4GHz), up to 32 users</td>
+                        </tr>
+                        <tr>
+                            <th>Chipset</th>
+                            <td>Qualcomm MDM9207</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="gallery" class="container my-5">
-            <h2 class="text-primary text-center mb-4">Gallery</h2>
-            <div class="row">
-                <div class="col-lg-6 mb-4">
-                    <div class="card">
-                        <img src="../project 1/alcatel.png" alt="LTE Cat4 Home Station" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">White Variation</h5>
-                            <p class="card-text">The white Alcatel LTE Cat 4 Home Station blends elegance and
-                                functionality.</p>
-                        </div>
-                    </div>
+    <!-- GALLERY -->
+    <section class="section-padding">
+        <div class="container">
+            <h2 class="text-center fw-semibold mb-5 animate__animated animate__fadeIn">
+                Product Gallery
+            </h2>
+
+            <div class="row g-4">
+                <div class="col-lg-6 animate__animated animate__fadeInUp">
+                    <img src="../project 1/alcatel.png" class="img-fluid gallery-img" alt="">
                 </div>
-                <div class="col-lg-6 mb-4">
-                    <div class="card">
-                        <img src="../project 1/alcatelB.png" alt="LTE Cat4 Home Station" class="card-img-top">
-                        <div class="card-body">
-                            <h5 class="card-title">Black Variation</h5>
-                            <p class="card-text">Looking for the black Alcatel LTE Cat 4 Home Station?</p>
-                        </div>
-                    </div>
+
+                <div class="col-lg-6 animate__animated animate__fadeInUp animate__delay-1s">
+                    <img src="../project 1/alcatelB.png" class="img-fluid gallery-img" alt="">
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <div class="text-center">
-        <a href="https://www.alcatelmobile.com/product/mobile-broadband/mobile-wifi/lte-cat4-home-station/"
-            class="btn btn-link">To know more about this product click here</a>
-    </div>
-
-    <footer class="bg-dark text-white text-center py-3 mt-5">
-        <p>&copy; 2024 ALeycano. All rights reserved.</p>
+    <footer class="text-center py-4 mt-5">
+        <p class="text-secondary small mb-0">
+            © 2026 Aldin Leycano. All rights reserved.
+        </p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
